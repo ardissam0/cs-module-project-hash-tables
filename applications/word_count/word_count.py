@@ -1,5 +1,32 @@
 def word_count(s):
-    # Your code here
+
+    #create cache
+    cache = {}
+
+    #make s all lowercase
+    newS = s.lower()
+
+    #split characters with a space
+    ignore = '" : ; , . - + = / \ | [ ] { } ( ) * ^ &'.split(" ")
+
+    # for all characters in ignore
+    # replace s with no spaces
+    for character in ignore:
+        newS = newS.replace(character, "")
+
+    # for the words in s
+    # if the word is equal to no space then keep going
+    # if the word is not in the cache then add it
+    # otherwise keep going 
+    #then return the cache
+    for word in newS.split():
+        if word == "":
+            continue
+        if word not in cache:
+            cache[word] = 1
+        else:
+            cache[word] += 1
+    return cache
 
 
 
