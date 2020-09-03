@@ -1,4 +1,9 @@
-# Your code here
+import random
+import math
+
+# intialize a cache
+# to store data already found
+cache = {}
 
 
 def slowfun_too_slow(x, y):
@@ -14,7 +19,14 @@ def slowfun(x, y):
     Rewrite slowfun_too_slow() in here so that the program produces the same
     output, but completes quickly instead of taking ages to run.
     """
-    # Your code here
+    # use cache to make things faster
+    # if not in the cache
+    # add them to the cache
+    if (x, y) not in cache:
+        cache[(x, y)] = slowfun_too_slow(x,y)
+
+    # return them if you find them 
+    return cache[(x, y)]
 
 
 

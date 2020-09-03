@@ -1,5 +1,15 @@
 def no_dups(s):
-    # Your code here
+    # initialize a cache
+    cache = {}
+
+    # for all words in s, split them
+    # if the word is not in the cache
+    # add the word to the cache
+    # then return the words joined without duplicates
+    for word in s.split():
+        if word not in cache:
+            cache[word] = 1
+    return " ".join(cache)
 
 
 
